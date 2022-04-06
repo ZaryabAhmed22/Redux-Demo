@@ -1,0 +1,23 @@
+1. Import the redux object with require after installing from npm. 
+
+2. Create a store with redux.createStore().
+
+3. Create a reducer function that takes 2 parameters as inputs and returns 1 output that's the new state snapshot
+
+4. Call the reducer function in the redux.createStore() i.e redux.createStore(counterReducer).
+
+5. Create a subscriber function, which is a basic js fucntion.
+
+6. Inside the subscriber function create a variable for the latest state i.e for example const latestState = store.getState()
+
+7. Make the redux aware of the subscriber by pointing the subscriber function inside store.subscriber(subscriberFunction).
+
+8. Do not call the subscriber function inside the store.subscriber().
+
+9. NOW, we will run our file with "node file.js", and it will return an error "can't read property counter(in our case, though it can be any state property) of undefined".
+
+10. The error is given because when the reducer runs, there is no state present, so to avoid this error, we will give our reucer a default state parameter example (state = {counter: 1})
+
+11. After fixing this problem, though running the file will give no output because we haven't dispatched any action.
+
+12. 
