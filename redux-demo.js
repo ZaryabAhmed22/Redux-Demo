@@ -1,9 +1,18 @@
 const redux = require("redux");
 
-const counterReducer = (state = { counter: 0 }, dispatch) => {
-  return {
-    counter: state.counter + 1,
-  };
+const counterReducer = (state = { counter: 0 }, action) => {
+  if (action.type === "INCREMENT") {
+    return {
+      counter: state.counter + 1,
+    };
+  }
+
+  if (action.type === "DECREMENT") {
+    return {
+      counter: state.counter - 1,
+    };
+  }
+  return state;
 };
 
 const store = redux.createStore(counterReducer);
@@ -20,3 +29,4 @@ store.subscribe(counterSubscriber);
 
 //Creating and dispatching an action
 store.dispatch({ type: "INCREMENT" });
+store.dispatch({ type: "DECREMENT" });
